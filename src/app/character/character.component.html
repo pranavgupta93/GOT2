@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="row" *ngIf="character">
+    <div class="col-md-6" *ngIf="character.name">
+      <h3>Name: </h3><h4>{{character.name}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="character.gender">
+      <h3>Gender: </h3><h4>{{character.gender}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="character.culture">
+        <h3>Culture: </h3><h4>{{character.culture}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="character.born">
+        <h3>Born: </h3><h4>{{character.born}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="character.died">
+        <h3>Died: </h3><h4>{{character.died}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="character.titles[0]">
+        <h3>Titles: </h3>
+        <h4>
+          <div *ngFor="let title of character.titles">
+          {{title}}
+        </div>
+        </h4>
+    </div>
+    <div class="col-md-6" *ngIf="character.aliases.length>0">
+        <h3>Aliases: </h3>
+        <h4>
+          <div *ngFor="let alias of character.aliases">
+            {{alias}}
+          </div>
+        </h4>
+    </div>
+    <div class="col-md-6"  *ngIf="character.spouse">
+        <h3>Spouse: </h3>
+        <h4>
+          {{character.spouse}}
+        </h4>
+    </div>
+    <div class="col-md-6"  *ngIf="character.father">
+        <h3>Father: </h3>
+        <h4>
+          {{character.father}}
+        </h4>
+    </div>
+    <div class="col-md-6"  *ngIf="character.mother">
+        <h3>Mother: </h3>
+        <h4>
+          {{character.mother}}
+        </h4>
+    </div>
+    <div class="col-md-6" *ngIf="character.allegiances.length>0">
+        <h3>Allegiances: </h3>
+        <h4>
+          <div *ngFor="let allegiance of character.allegiances">
+            {{allegiance}}
+          </div>
+        </h4>
+    </div>
+    <div class="col-md-6" *ngIf="character.books.length>0">
+        <h3>Books: </h3>
+        <h4>
+          <div *ngFor="let book of character.books">
+            {{book}}
+          </div>
+        </h4>
+    </div>
+    <div class="col-md-6" *ngIf="character.povBooks.length>0">
+        <h3>PovBooks: </h3>
+        <h4>
+          <div *ngFor="let book of character.povBooks">
+            {{book}}
+          </div>
+        </h4>
+    </div>
+    <div class="col-md-6" *ngIf="character.tvSeries[0]">
+        <h3>tvSeries: </h3>
+        <h4>
+          <div *ngFor="let tv of character.tvSeries">
+            {{tv}}
+          </div>
+        </h4>
+    </div>
+    <div class="col-md-6" *ngIf="character.playedBy[0]">
+        <h3>playedBy: </h3>
+        <h4>
+          <div *ngFor="let played of character.playedBy">
+            {{played}}
+          </div>
+        </h4>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row" *ngIf="book">
+    <div class="col-md-6">
+        <h3>Name: </h3><h4>{{book.name}}</h4>
+    </div>
+    <div class="col-md-6">
+        <h3>ISBN: </h3><h4>{{book.isbn}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="book.numberOfPages">
+        <h3>Number OF Pages: </h3><h4>{{book.numberOfPages}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="book.publisher">
+        <h3>Publisher: </h3><h4>{{book.publisher}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="book.country">
+        <h3>Country: </h3><h4>{{book.country}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="book.mediaType">
+        <h3>Media Type: </h3><h4>{{book.mediaType}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="book.released">
+        <h3>Released: </h3><h4>{{book.released | date:'longDate'}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="book.authors[0]">
+        <h3>Authors: </h3><h4 *ngFor="let author of book.authors">{{author}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="book.characters[0]">
+        <h3>Characters: </h3><h4 *ngFor="let character of book.characters">{{character}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="book.povCharacters[0]">
+        <h3>PovCharacters: </h3><h4 *ngFor="let character of book.povCharacters">{{character}}</h4>
+    </div>
+  </div>
+</div>

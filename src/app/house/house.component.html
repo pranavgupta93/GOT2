@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row" *ngIf="house">
+    <div class="col-md-6">
+        <h3>Name: </h3><h4>{{house.name}}</h4>
+    </div>
+    <div class="col-md-6">
+        <h3>Region: </h3><h4>{{house.region}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="house.coatOfArms">
+        <h3>Coat Of Arms: </h3><h4>{{house.coatOfArms}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="house.titles[0]">
+        <h3>Words: </h3><h4 *ngFor="let title of house.titles">{{title}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="house.seats[0]">
+        <h3>Seats: </h3><h4 *ngFor="let seat of house.seats">{{seat}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="house.currentLord">
+        <h3>Current Lord: </h3><h4>{{house.currentLord}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="house.heir">
+        <h3>Heir: </h3><h4>{{house.heir}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="house.overlord">
+        <h3>Overlord: </h3><h4>{{house.overlord}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="house.founded">
+        <h3>Founded: </h3><h4>{{house.founded}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="house.founder">
+        <h3>Founder: </h3><h4>{{house.founder}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="house.diedOut">
+        <h3>Died Out: </h3><h4>{{house.diedOut}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="house.ancestralWeapons[0]">
+        <h3>Ancestral Weapons: </h3><h4 *ngFor="let ancestralWeapon of house.ancestralWeapons">{{ancestralWeapon}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="house.cadetBranches[0]">
+        <h3>Cadet Branches: </h3><h4 *ngFor="let cadetBranch of house.cadetBranches">{{cadetBranch}}</h4>
+    </div>
+    <div class="col-md-6" *ngIf="house.swornMembers[0]">
+        <h3>Sworn Members: </h3><h4 *ngFor="let swornMember of house.swornMembers">{{swornMember}}</h4>
+    </div>
+  </div>
+</div>

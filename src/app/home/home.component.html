@@ -1,0 +1,41 @@
+<br>
+<div class="container">
+  <div class="row" *ngIf="allData.length>0">
+    <div class="col-md-4" *ngFor="let data of allData">
+      <div class="col-md-12" *ngIf="data.isbn">
+      <div class="card">
+        <img class="card-img-top" src="../../assets/book.jpg" height="180px" width="286px" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Book name: {{data.name}}</h5>
+          <a [routerLink]="['/book',data.url.split('/').pop()]" class="btn btn-success">Know More</a>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12" *ngIf="data.region || data.coatOfArms">
+      <div class="card">
+        <img class="card-img-top" src="../../assets/house.png" height="180px" width="286px" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">House name: {{data.name}}</h5>
+          <a [routerLink]="['/house',data.url.split('/').pop()]" class="btn btn-success">Know More</a>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12" *ngIf="data.gender">
+      <div class="card">
+        <img class="card-img-top" src="../../assets/char.png" height="180px" width="286px" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Character name: <span *ngIf="data.name; then ifblock else elseblock"></span>
+            <ng-template #ifblock>{{data.name}}</ng-template>
+            <ng-template #elseblock>Not Available</ng-template>
+          </h5>
+          <a [routerLink]="['/character',data.url.split('/').pop()]" class="btn btn-success">Know More</a>
+          <p class="card-text"></p>
+          
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
