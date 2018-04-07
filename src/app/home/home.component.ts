@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GotService } from '../got.service';
+import {FormsModule} from '@angular/forms';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

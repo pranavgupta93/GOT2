@@ -25,10 +25,11 @@
         <h3>Authors: </h3><h4 *ngFor="let author of book.authors">{{author}}</h4>
     </div>
     <div class="col-md-6" *ngIf="book.characters[0]">
-        <h3>Characters: </h3><h4 *ngFor="let character of book.characters">{{character}}</h4>
+        <h3>Characters: </h3><h4 *ngFor="let character of book.characters"><a [routerLink]="['/character',character.split('/').pop()]">{{character}}</a></h4>
     </div>
     <div class="col-md-6" *ngIf="book.povCharacters[0]">
-        <h3>PovCharacters: </h3><h4 *ngFor="let character of book.povCharacters">{{character}}</h4>
+        <h3>PovCharacters: </h3><h4 *ngFor="let character of book.povCharacters"><a [routerLink]="['/character',character.split('/').pop()]">{{character}}</a></h4>
     </div>
+    <div class="col-md-12"><button class="btn btn-warning" (click)="goback()">Go back</button></div>
   </div>
 </div>

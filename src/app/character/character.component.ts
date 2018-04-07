@@ -1,26 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { GotService } from '../got.service';
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
-  styleUrls: ['./character.component.css']
+  styleUrls: ['./character.component.css'],
+  providers:[Location]
 })
 export class CharacterComponent implements OnInit {
-  private id=this._route.snapshot.paramMap.get('id');
+  private id;
   public character;
-  constructor(private _route:ActivatedRoute,private gotservice:GotService) { }
+  public goback() {
+    this.location.back();
+  }
+  constructor(private _route:ActivatedRoute,private gotservice:GotService,private location:Location) { }
   private getCharacterDetails=(id)=>{
     this.gotservice.getCharacter(id).subscribe(
       response=>{
         //console.log(response);
         this.character=response;
         console.log(this.character);
+      },
+      error=>{
+        console.log("some error occurred");
       }
+      
     );
   }
   ngOnInit() {
-    this.getCharacterDetails(this.id);
+    this._route.params.subscribe(params=>{
+      this.id=params.id;
+      this.getCharacterDetails(this.id);
+    });
+    //this.getCharacterDetails(this.id);
   }
 
 }

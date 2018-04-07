@@ -1,7 +1,20 @@
 <br>
 <div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      Search Name: <input type="text" [(ngModel)]="search">
+    </div>
+    <div class="col-md-6">
+      View: <select [(ngModel)]="view">
+        <option value="" [selected]="">All</option>
+        <option value="characters">Characters</option>
+        <option value="houses">Houses</option>
+        <option value="books">Books</option>
+      </select>
+    </div>
+  </div><br>
   <div class="row" *ngIf="allData.length>0">
-    <div class="col-md-4" *ngFor="let data of allData">
+    <div class="col-md-4" *ngFor="let data of allData | filter : search |sort|select:view">
       <div class="col-md-12" *ngIf="data.isbn">
       <div class="card">
         <img class="card-img-top" src="../../assets/book.jpg" height="180px" width="286px" alt="Card image cap">

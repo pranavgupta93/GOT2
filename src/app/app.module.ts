@@ -8,6 +8,10 @@ import { HomeComponent } from './home/home.component';
 import { BookComponent } from './book/book.component';
 import { HouseComponent } from './house/house.component';
 import { CharacterComponent } from './character/character.component';
+import { SortPipe } from './sort.pipe';
+import {FormsModule} from '@angular/forms';
+import { FilterPipe } from './filter.pipe';
+import { SelectPipe } from './select.pipe';
 
 
 @NgModule({
@@ -16,10 +20,13 @@ import { CharacterComponent } from './character/character.component';
     HomeComponent,
     BookComponent,
     HouseComponent,
-    CharacterComponent
+    CharacterComponent,
+    SortPipe,
+    FilterPipe,
+    SelectPipe
   ],
   imports: [
-    BrowserModule,HttpClientModule,
+    BrowserModule,HttpClientModule,FormsModule,
     RouterModule.forRoot([{
       path:'home',component:HomeComponent
     },

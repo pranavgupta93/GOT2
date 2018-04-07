@@ -16,19 +16,19 @@
         <h3>Seats: </h3><h4 *ngFor="let seat of house.seats">{{seat}}</h4>
     </div>
     <div class="col-md-6" *ngIf="house.currentLord">
-        <h3>Current Lord: </h3><h4>{{house.currentLord}}</h4>
+        <h3>Current Lord: </h3><h4><a [routerLink]="['/character',house.currentLord.split('/').pop()]">{{house.currentLord}}</a></h4>
     </div>
     <div class="col-md-6" *ngIf="house.heir">
-        <h3>Heir: </h3><h4>{{house.heir}}</h4>
+        <h3>Heir: </h3><h4><a [routerLink]="['/character',house.heir.split('/').pop()]">{{house.heir}}</a></h4>
     </div>
     <div class="col-md-6" *ngIf="house.overlord">
-        <h3>Overlord: </h3><h4>{{house.overlord}}</h4>
+        <h3>Overlord: </h3><h4><a [routerLink]="['/house',house.overlord.split('/').pop()]">{{house.overlord}}</a></h4>
     </div>
     <div class="col-md-6" *ngIf="house.founded">
         <h3>Founded: </h3><h4>{{house.founded}}</h4>
     </div>
     <div class="col-md-6" *ngIf="house.founder">
-        <h3>Founder: </h3><h4>{{house.founder}}</h4>
+        <h3>Founder: </h3><h4><a [routerLink]="['/character',house.founder.split('/').pop()]">{{house.founder}}</a></h4>
     </div>
     <div class="col-md-6" *ngIf="house.diedOut">
         <h3>Died Out: </h3><h4>{{house.diedOut}}</h4>
@@ -37,10 +37,11 @@
         <h3>Ancestral Weapons: </h3><h4 *ngFor="let ancestralWeapon of house.ancestralWeapons">{{ancestralWeapon}}</h4>
     </div>
     <div class="col-md-6" *ngIf="house.cadetBranches[0]">
-        <h3>Cadet Branches: </h3><h4 *ngFor="let cadetBranch of house.cadetBranches">{{cadetBranch}}</h4>
+        <h3>Cadet Branches: </h3><h4 *ngFor="let cadetBranch of house.cadetBranches"><a [routerLink]="['/house',cadetBranch.split('/').pop()]">{{cadetBranch}}</a></h4>
     </div>
     <div class="col-md-6" *ngIf="house.swornMembers[0]">
-        <h3>Sworn Members: </h3><h4 *ngFor="let swornMember of house.swornMembers">{{swornMember}}</h4>
+        <h3>Sworn Members: </h3><h4 *ngFor="let swornMember of house.swornMembers"><a [routerLink]="['/character',swornMember.split('/').pop()]">{{swornMember}}</a></h4>
     </div>
+    <div class="col-md-12"><button class="btn btn-warning" (click)="goback()">Go back</button></div>
   </div>
 </div>

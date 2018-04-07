@@ -23,7 +23,7 @@
         </div>
         </h4>
     </div>
-    <div class="col-md-6" *ngIf="character.aliases.length>0">
+    <div class="col-md-6" *ngIf="character.aliases[0]">
         <h3>Aliases: </h3>
         <h4>
           <div *ngFor="let alias of character.aliases">
@@ -33,27 +33,33 @@
     </div>
     <div class="col-md-6"  *ngIf="character.spouse">
         <h3>Spouse: </h3>
+        <a [routerLink]="['/character',character.spouse.split('/').pop()]">
         <h4>
           {{character.spouse}}
-        </h4>
+        </h4></a>
     </div>
     <div class="col-md-6"  *ngIf="character.father">
         <h3>Father: </h3>
+        <a [routerLink]="['/character',character.father.split('/').pop()]">
         <h4>
           {{character.father}}
         </h4>
+        </a>
     </div>
     <div class="col-md-6"  *ngIf="character.mother">
         <h3>Mother: </h3>
+        <a [routerLink]="['/character',character.mother.split('/').pop()]">
         <h4>
           {{character.mother}}
-        </h4>
+        </h4></a>
     </div>
     <div class="col-md-6" *ngIf="character.allegiances.length>0">
         <h3>Allegiances: </h3>
         <h4>
           <div *ngFor="let allegiance of character.allegiances">
+              <a [routerLink]="['/house',allegiance.split('/').pop()]">
             {{allegiance}}
+            </a>
           </div>
         </h4>
     </div>
@@ -61,7 +67,9 @@
         <h3>Books: </h3>
         <h4>
           <div *ngFor="let book of character.books">
+            <a [routerLink]="['/book',book.split('/').pop()]">
             {{book}}
+            </a>
           </div>
         </h4>
     </div>
@@ -69,7 +77,9 @@
         <h3>PovBooks: </h3>
         <h4>
           <div *ngFor="let book of character.povBooks">
+              <a [routerLink]="['/book',book.split('/').pop()]">
             {{book}}
+            </a>
           </div>
         </h4>
     </div>
@@ -89,5 +99,6 @@
           </div>
         </h4>
     </div>
+    <div class="col-md-12"><button class="btn btn-warning" (click)="goback()">Go back</button></div>
   </div>
 </div>
